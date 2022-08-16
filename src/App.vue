@@ -7,6 +7,15 @@
 </template>
 
 <style>
+body * {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+body {
+  background: #000;
+}
 nav a.router-link-exact-active {
   color: #42b983;
 }
