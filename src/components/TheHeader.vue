@@ -1,10 +1,15 @@
 <template>
   <div class="header">
-    <!-- <img alt="Vue logo" src="../assets/cine.png" /> -->
     <form action="">
       <label for="">
-        <input type="text" placeholder="Search" />
+        <input
+          :value="something"
+          v-on:input="something = $event.target.value"
+          type="text"
+          placeholder="Search"
+        />
       </label>
+      <h2 style="color: #fff">{{ something }}</h2>
       <input type="submit" value="Search" />
     </form>
   </div>
@@ -13,6 +18,12 @@
 <script>
 export default {
   name: "TheHeader",
+  data() {
+    return {
+      something: "",
+    };
+  },
+  methods: {},
 };
 </script>
 <style scoped>

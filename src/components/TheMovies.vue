@@ -19,10 +19,13 @@
             <div>
               <img
                 :src="`${this.baseurl}${results.poster_path}`"
+                :alt="`${results.title}`"
                 class="posters"
               />
               <div class="info">
-                <p>{{ results.title }}</p>
+                <p>{{ results.title ? results.title : results.name }}</p>
+
+                <!-- <p>{{ results.genre_ids }}</p> -->
                 <span>{{ results.vote_average }}</span>
               </div>
             </div>
@@ -58,11 +61,22 @@ export default {
     getMovies() {
       api.get(this.types).then((response) => {
         this.api = response.data;
+        // console.log(response.data);
+      });
+    },
+    getSeries() {
+      api.getbyseries(this.types).then((response) => {
+        this.api = response.data;
+        // console.log(response.data);
       });
     },
   },
   created() {
-    this.getMovies();
+    if (this.title.includes("Séries")) {
+      this.getSeries();
+    } else {
+      this.getMovies();
+    }
   },
 };
 </script>
@@ -96,11 +110,11 @@ export default {
 .title {
   color: #fff;
 }
-.slide {
+/* .slide {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; 
+}*/
 .vueperslides__parallax-wrapper {
   padding-bottom: 50% !important;
 }
