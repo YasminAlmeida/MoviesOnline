@@ -11,13 +11,7 @@ const routes = [
     path: "/MoviePage",
     name: "MoviePage",
     component: () => import("@/views/MoviePage.vue"),
-  },
-
-  {
-    path: "/about",
-    name: "TypesOfMovies",
-    component: () => import("@/views/TypesOfMovies.vue"),
-  },
+  }
 ];
 
 const router = createRouter({

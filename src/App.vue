@@ -1,7 +1,6 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>
-    <router-link to="/about">SeriesPage</router-link>
     <router-link to="/MoviePage">MoviePage</router-link>
   </nav>
   <router-view />
